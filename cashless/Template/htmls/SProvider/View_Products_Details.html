@@ -1,0 +1,96 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1"><marquee behavior="alternate"">VIEW ALL PRODUCT DETAILS</marquee></p>
+                            <hr>
+ 					<div class="userdetails">
+                    <table border="1">
+                                    <tr>
+
+
+                                   <th style="color:red; font-size:20px; font-family:fantasy" >Product Name</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Desc</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Price</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Category</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy" >Service Provider</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy">Company Name</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Product Uses</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy">Uploaded Date</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">User Ratings</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Rank</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Dislikes</th>
+
+
+
+                                    </tr>
+                                {% for object in list_objects %}
+
+                                    <tr>
+                                          <td style="color:red; font-size:25px; font-family:fantasy" >{{object.names}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.p_desc}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.p_price}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.pcat}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.sprovider}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.c_name}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.p_uses}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.DT}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.ratings}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.likes}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.dislikes}}</td>
+
+
+
+
+
+
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

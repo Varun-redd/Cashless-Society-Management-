@@ -1,0 +1,90 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+.style3 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style4 {color: #FFFFFF}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+				
+				          <p class="style3">VIEW ALL PRODUCTS PURCHASED DETAILS !!! 					 </p>
+				          <table border="1">
+                              <tr>
+
+
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy" ><span class="style4">User Name</span></th>
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy"><span class="style4">Product Name</span></th>
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy"><span class="style4">Product Price</span></th>
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy"><span class="style4">Purchased Date and Time</span></th>
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy"><span class="style4">Address Delivered</span></th>
+                                    <th bgcolor="#0000FF" style="color:red; font-size:20px; font-family:fantasy"><span class="style4">User City</span></th>
+
+
+                                    </tr>
+
+                                    {% for object in list_objects %}
+
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" ><span class="style3">{{object.uname}}</span></td>
+                                         <td style="font-family:monospace; font-size:19px; "><span class="style3">{{object.pname}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style3">{{object.price}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px;  "><span class="style3">{{object.dt}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style3">{{object.addr}}</span></td>
+                                        <td style="font-family:monospace; font-size:19px; "><span class="style3">{{object.yc}}</span></td>
+
+                            </tr>
+
+
+
+
+
+
+
+                                        {% endfor %}
+                  </table>
+              </div>
+
+
+
+
+						</fieldset>
+					</form>
+		  </div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

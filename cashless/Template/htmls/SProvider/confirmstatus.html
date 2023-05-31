@@ -1,0 +1,91 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;}
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input,textarea{
+			font-family:Aldrich;
+			font-size:15px;
+			}
+        .style2 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style3 {color: #FF0000}
+        .style5 {font-weight: bold}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style2">PURCHASE CONFIRM HERE !!! </p>
+                            <hr>
+
+
+
+                                {% csrf_token %}
+                                <table width="446">
+									<tr>
+										<td width="184" bgcolor="#FFFF00"><span class="style3">User Name</span></td>
+                                        <td width="144"><input type="text" name="uname" value="{{objc}}" readonly></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Product Name</span></td>
+                                        <td><input type="text" name="pname"  value="{{objc1}}" readonly></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Product Price </span></td>
+                                      <td><input type="text" name="pprice" value="{{pprice}}"></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3"> User Address </span></td>
+                                        <td><textarea name="addr" cols="18" rows="7" >{{addr}}</textarea></td>
+                                    </tr>
+									<tr>
+										<td bgcolor="#FFFF00"><span class="style3">Enter Delivery Address</span></td>
+                                        <td><textarea name="daddr" cols="18" rows="7" ></textarea></td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td><input type="submit" class="style2"></td>
+                                    </tr>
+                        </table>
+
+
+<marquee behavior="alternate"> <p><span class="style7 style3 style5"><em>YOU ARE GOING TO DELIVER  ::</em></span><span class="style2">  </span> {{objc1}}	</p>
+</marquee>
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
