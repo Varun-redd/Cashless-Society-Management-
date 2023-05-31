@@ -1,0 +1,114 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#FFFFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">VIEW ALL PRODUCT DETAILS !!! </p>
+                            <hr>
+                            <div class="tweettext">
+                                <table border="1">
+                                    <tr>
+                                        {% for object in list_objects %}
+
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Name</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Desc</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Price</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >Product Category</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy" >Service Provider</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy">Company Name</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Product Uses</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy">Uploaded Date</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Give Your Ratings</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Rank</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Dislike</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Review</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">Recommend</th>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" >{{object.names}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.p_desc}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.p_price}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.pcat}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.sprovider}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.c_name}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.p_uses}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.DT}}</td>
+
+
+                                        <td><a href="{% url 'ratings' object.id %}">Rate&nbsp&nbsp&nbsp({{object.ratings}})</a> </td>
+                                        <td><a href="{% url 'likes' object.id %}">Give Rank &nbsp&nbsp&nbsp({{object.likes}})</a> </td>
+                                        <td><a href="{% url 'dislikes' object.id %}">Dislike &nbsp&nbsp&nbsp({{object.dislikes}})</a> </td>
+                                        <td><a href="{% url 'Review' object.id%}">Review </a> </td>
+                                        <td><a href="{% url 'Recommend' object.id%}">Recommend </a> </td>
+
+
+
+                                  </tr>
+
+
+
+
+
+
+
+                                        {% endfor %}
+                                </table>
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>
